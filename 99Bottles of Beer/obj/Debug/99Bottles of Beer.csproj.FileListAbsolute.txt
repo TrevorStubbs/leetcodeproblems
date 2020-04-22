@@ -1,0 +1,7 @@
+D:\Development Projects\C#\LeetCodeProblems\99Bottles of Beer\bin\Debug\99Bottles of Beer.exe.config
+D:\Development Projects\C#\LeetCodeProblems\99Bottles of Beer\bin\Debug\99Bottles of Beer.exe
+D:\Development Projects\C#\LeetCodeProblems\99Bottles of Beer\bin\Debug\99Bottles of Beer.pdb
+D:\Development Projects\C#\LeetCodeProblems\99Bottles of Beer\obj\Debug\99Bottles of Beer.csprojAssemblyReference.cache
+D:\Development Projects\C#\LeetCodeProblems\99Bottles of Beer\obj\Debug\99Bottles of Beer.csproj.CoreCompileInputs.cache
+D:\Development Projects\C#\LeetCodeProblems\99Bottles of Beer\obj\Debug\99Bottles of Beer.exe
+D:\Development Projects\C#\LeetCodeProblems\99Bottles of Beer\obj\Debug\99Bottles of Beer.pdb

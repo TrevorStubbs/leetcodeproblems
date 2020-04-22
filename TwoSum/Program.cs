@@ -1,0 +1,120 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TwoSum
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Rough Draft
+            int[] TwoSumOne(int[] nums, int target)
+            {
+                int[] result = { 0, 0 };
+
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    for (int j = i + 1; j < nums.Length; j++)
+                    {
+                        if (j > nums.Length)
+                        {
+                            break;
+                        }
+                        int thisOneQQ = nums[i] + nums[j];
+                        if (thisOneQQ == target)
+                        {
+                            result[0] = nums[i];
+                            result[1] = nums[j];
+                        }
+                    }
+                }
+                return result;
+            }
+            
+
+            // Cleaned up a bit
+            int[] TwoSumTwo(int[] nums, int target)
+            {
+                int[] result = { 0, 0 };
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    for (int j = i + 1; j < nums.Length; j++)
+                    {
+                        if (nums[j] == target - nums[i])
+                        {
+                            return new int[] { i, j };
+                        }
+                    }
+                }
+
+                return result;
+            }
+            
+            // Using a dictonary with 2 passes
+            int[] TwoSumDictionary(int[] nums, int target)
+            {
+                IDictionary<int, int> map = new Dictionary<int, int>();
+                for(int i = 0; i < nums.Length; i++)
+                {
+                    map.Add(i, nums[i]);
+                }
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    int difference = target - i;
+                    if(map.ContainsKey(difference) && map[difference] != i)
+                    {
+                        return new int[] { i, map[difference] };
+                    }
+                }
+                return new int[] { 0, 0 };
+            }
+            
+            int[] TwoSumOneDictonary(int[] nums, int target)
+            {
+                var dict = new Dictionary<int, int>();
+
+                for(int i = 0; i<nums.Length; i++)
+                {
+                    int goal = target - nums[i];
+
+                    if( dict.ContainsKey(goal))
+                    {
+                        return new int[] { dict[goal], i };
+                    }
+                    else if (!dict.ContainsKey(nums[i]))
+                    {
+                        dict.Add(nums[i], i);
+                    }                    
+                }
+                return new int[] { };
+            }
+
+            
+            void printValues(int[] myArr)
+            {
+                for (int i = 0; i<myArr.Length; i++)
+                {
+                    Console.WriteLine("{0}", i);
+                }
+                Console.WriteLine();
+            }
+            
+
+            int[] numb = { 2, 7, 11, 15 };
+            int[] test2 = { 3, 3 };
+            printValues(TwoSumOne(numb, 9));
+            printValues(TwoSumTwo(numb, 9));
+            printValues(TwoSumDictionary(numb, 9));
+            Console.WriteLine();
+            printValues(TwoSumOne(test2, 6));
+            printValues(TwoSumDictionary(test2, 6));
+            Console.WriteLine();
+            printValues(TwoSumOneDictonary(test2, 6));
+            Console.ReadLine();
+        }
+    }
+
+}
