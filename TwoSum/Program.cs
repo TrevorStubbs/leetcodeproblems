@@ -51,27 +51,9 @@ namespace TwoSum
                 }
 
                 return result;
-            }
+            }           
             
-            // Using a dictonary with 2 passes
-            int[] TwoSumDictionary(int[] nums, int target)
-            {
-                IDictionary<int, int> map = new Dictionary<int, int>();
-                for(int i = 0; i < nums.Length; i++)
-                {
-                    map.Add(i, nums[i]);
-                }
-                for (int i = 0; i < nums.Length; i++)
-                {
-                    int difference = target - i;
-                    if(map.ContainsKey(difference) && map[difference] != i)
-                    {
-                        return new int[] { i, map[difference] };
-                    }
-                }
-                return new int[] { 0, 0 };
-            }
-            
+            // Use a dictionary for O(n). (or is it O(log n)?)
             int[] TwoSumOneDictonary(int[] nums, int target)
             {
                 var dict = new Dictionary<int, int>();
@@ -103,14 +85,12 @@ namespace TwoSum
             }
             
 
-            int[] numb = { 2, 7, 11, 15 };
+            int[] test1 = { 2, 7, 11, 15 };
             int[] test2 = { 3, 3 };
-            printValues(TwoSumOne(numb, 9));
-            printValues(TwoSumTwo(numb, 9));
-            printValues(TwoSumDictionary(numb, 9));
+            printValues(TwoSumOne(test1, 9));
+            printValues(TwoSumTwo(test1, 9));
             Console.WriteLine();
             printValues(TwoSumOne(test2, 6));
-            printValues(TwoSumDictionary(test2, 6));
             Console.WriteLine();
             printValues(TwoSumOneDictonary(test2, 6));
             Console.ReadLine();
